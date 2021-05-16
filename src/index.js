@@ -30,13 +30,17 @@ function themeUpdate (themeOld, themeNew) {
     localStorage.setItem('theme', themeNew);
 }
 
-const themeCurrent = localStorage.getItem(theme);
+const themeCurrent = localStorage.getItem('theme') || theme.LIGHT;
 
-if(themeCurrent === theme.DARK) {
-    document.body.classList.add(theme.DARK);
-} else {
-    document.body.classList.add(theme.LIGHT);
-}
+document.body.classList.add(themeCurrent);
+
+themeRef.checked = themeCurrent === theme.DARK;
+
+// if(themeCurrent === theme.DARK) {
+//     document.body.classList.add(theme.DARK);
+// } else {
+//     document.body.classList.add(theme.LIGHT);
+// }
 
 
 
